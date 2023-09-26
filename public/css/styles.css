@@ -172,6 +172,47 @@ div.ofertas{
     font-weight: normal;
 }
 
+.productos article {
+  position: relative;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.productos article:hover {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.productos article .descripciones {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border-radius: 4px;
+  text-align: center;
+  z-index: 1;
+}
+
+.productos article:hover .descripciones {
+  display: block;
+}
+
+.productos article i.fas.fa-truck {
+  transition: transform 0.3s ease;
+}
+
+.productos article:hover i.fas.fa-truck {
+  transform: rotate(-90deg);
+}
+
+.productos article .caja {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+
 /* Register */
 
 input:focus{
@@ -197,7 +238,8 @@ label {
     font-weight: bold;
 }
 
-ul {
+ul,
+li {
     list-style-type: none;
     padding: 0;
 }
@@ -239,6 +281,45 @@ input[type="date"] {
     margin-bottom: 10px;
 }
 
+/* footer */
+
+footer {
+    padding: 20px;
+}
+
+.mi-lista {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    flex-direction: column; /* Móvil: una columna */
+}
+
+.columna {
+    text-align: center;
+    margin: 20px;
+    transition: color 0.3s;
+}
+
+.columna:hover i {
+    color: yellow;
+}
+
+.derechos {
+    text-align: center;
+    margin-top: 20px;
+}
+
+@keyframes fadeAndSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+}
 
 
 @media (min-width: 361px){
@@ -266,10 +347,84 @@ input[type="date"] {
     .descuentos{
         width: 50%;
     }
+
+    .productos article .descripciones {
+        font-size: 18px;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeAndSlideIn 0.3s ease forwards;
+        line-height: 28.5px;
+      }
+
+    .productos article:hover .descripciones {
+        font-size: 20px;
+        opacity: 1;
+        transform: translateY(0);
+        display: block;
+    }
+
+
 }
+
 @media (min-width: 769px){
     main section div.productos article{
         width: 22%;
     }
+
+    .mi-lista {
+        flex-direction: row;
+    }
+
+    .productos article .descripciones {
+        font-size: 18px;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeAndSlideIn 0.3s ease forwards;
+      }
+
+    .productos article:hover .descripciones {
+        font-size: 20px;
+        opacity: 1;
+        transform: translateY(0);
+        display: block;
+    }
+
+    .productos article .caja {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
+
+}
+
+@media screen and (min-width: 1280px) {
+    .mi-lista {
+        justify-content: space-between;
+    }
+
+    .productos article .descripciones {
+        font-size: 18px;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: fadeAndSlideIn 0.3s ease forwards;
+        line-height: 28.5px;
+      }
+
+    .productos article:hover .descripciones {
+        font-size: 20px;
+        opacity: 1;
+        transform: translateY(0);
+        display: block;
+    }
+
+    .productos article .caja {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    
 
 }
